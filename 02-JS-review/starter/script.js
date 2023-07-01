@@ -144,9 +144,23 @@ function getBook(id) {
 }
 
 // Destructuring.
-const book = getBook(2);
+const book = getBook(1);
 book;
 
 const { author, genres, hasMovieAdaptation, pages, publicationDate, title } =
 	book;
+
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+
 console.log(author, genres, hasMovieAdaptation, pages, publicationDate, title);
+console.log(primaryGenre, secondaryGenre, otherGenres);
+
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+
+const updatedBook = {
+	...book,
+	pages: 1210,
+	moviePublicationDate: "2001-12-19",
+};
+updatedBook;
