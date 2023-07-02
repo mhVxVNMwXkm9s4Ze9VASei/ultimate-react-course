@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // Destructuring.
-const book = getBook(1);
+const book = getBook(2);
 book;
 
 const { author, genres, hasMovieAdaptation, pages, publicationDate, title } =
@@ -167,5 +167,9 @@ updatedBook;
 
 const summary = `"${title}" is a book with ${pages} pages written by ${author} in ${
 	publicationDate.split("-")[0]
-}.`;
+}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
 summary;
+
+const pageRange = (pages > 1000 ? "over" : "less than") + " a thousand";
+pageRange;
+console.log(`The book has ${pageRange} pages.`);
