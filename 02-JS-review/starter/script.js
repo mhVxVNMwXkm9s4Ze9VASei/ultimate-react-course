@@ -143,50 +143,6 @@ function getBook(id) {
 	return data.find((d) => d.id === id);
 }
 
-// Destructuring.
-const book = getBook(3);
-book;
-
-const { author, genres, hasMovieAdaptation, pages, publicationDate, title } =
-	book;
-
-const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
-
-console.log(author, genres, hasMovieAdaptation, pages, publicationDate, title);
-console.log(primaryGenre, secondaryGenre, otherGenres);
-
-const newGenres = [...genres, "epic fantasy"];
-newGenres;
-
-const updatedBook = {
-	...book,
-	pages: 1210,
-	moviePublicationDate: "2001-12-19",
-};
-updatedBook;
-
-const getYear = (str) => str.split("-")[0];
-console.log(getYear(publicationDate));
-
-const summary = `"${title}" is a book with ${pages} pages written by ${author} in ${getYear(
-	publicationDate
-)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
-summary;
-
-const pageRange = (pages > 1000 ? "over" : "less than") + " a thousand";
-pageRange;
-console.log(`The book has ${pageRange} pages.`);
-
-console.log(hasMovieAdaptation && "This book has a movie.");
-
-const spanishTranslation =
-	book.translations.spanish || "No Spanish translation.";
-spanishTranslation;
-
-const count =
-	book.reviews?.librarything?.reviewsCount ?? "No LibraryThing review data.";
-count;
-
 const getTotalReviewCount = (book) => {
 	const goodreads = book.reviews?.goodreads?.reviewsCount ?? 0;
 	const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
@@ -194,4 +150,14 @@ const getTotalReviewCount = (book) => {
 	return goodreads + librarything;
 };
 
-console.log(getTotalReviewCount(book));
+const books = getBooks();
+
+const titles = books.map((book) => book.title);
+titles;
+
+const essentialData = books.map((book) => ({
+	author: book.author,
+	title: book.title,
+	reviewsCount: getTotalReviewCount(book),
+}));
+essentialData;
