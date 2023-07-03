@@ -165,9 +165,12 @@ const updatedBook = {
 };
 updatedBook;
 
-const summary = `"${title}" is a book with ${pages} pages written by ${author} in ${
-	publicationDate.split("-")[0]
-}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `"${title}" is a book with ${pages} pages written by ${author} in ${getYear(
+	publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
 summary;
 
 const pageRange = (pages > 1000 ? "over" : "less than") + " a thousand";
