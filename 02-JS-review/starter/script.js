@@ -161,3 +161,13 @@ const essentialData = books.map((book) => ({
 	reviewsCount: getTotalReviewCount(book),
 }));
 essentialData;
+
+const longBooksWithMovie = books
+	.filter((book) => book.pages > 500 && book.hasMovieAdaptation)
+	.map((book) => book.title);
+longBooksWithMovie;
+
+const adventureBooks = books
+	.filter((book) => book.genres.includes("adventure"))
+	.map((book) => book.title);
+adventureBooks;
