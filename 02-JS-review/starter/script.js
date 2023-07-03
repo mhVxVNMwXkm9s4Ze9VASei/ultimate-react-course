@@ -176,3 +176,13 @@ summary;
 const pageRange = (pages > 1000 ? "over" : "less than") + " a thousand";
 pageRange;
 console.log(`The book has ${pageRange} pages.`);
+
+console.log(hasMovieAdaptation && "This book has a movie.");
+
+const spanishTranslation =
+	book.translations.spanish || "No Spanish translation.";
+spanishTranslation;
+
+const count =
+	book.reviews.librarything.reviewsCount ?? "No LibraryThing review data.";
+count;
