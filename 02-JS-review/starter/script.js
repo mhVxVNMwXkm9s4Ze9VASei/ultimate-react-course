@@ -186,3 +186,28 @@ const booksSortedByPagesDesc = books
 	.sort((a, b) => b.pages - a.pages)
 	.map((book) => ({ title: book.title, pages: book.pages }));
 booksSortedByPagesDesc;
+
+// 1. Add a book object to the array.
+const newBook = {
+	id: 6,
+	title: "Harry Potter and the Chamber of Secrets",
+	author: "J. K. Rowling",
+};
+
+const newBooks = [...books, newBook];
+newBooks;
+
+// 2. Delete a book object from the array.
+const booksAfterDelete = newBooks.filter((book) => book.id !== 3);
+booksAfterDelete;
+
+// 3. Update a book object in the array.
+const booksAfterUpdate = booksAfterDelete.map((book) =>
+	book.id === 1
+		? {
+				...book,
+				pages: 1,
+		  }
+		: book
+);
+booksAfterUpdate;
