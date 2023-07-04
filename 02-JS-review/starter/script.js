@@ -174,3 +174,15 @@ adventureBooks;
 
 const allBooksPages = books.reduce((sum, book) => sum + book.pages, 0);
 allBooksPages;
+
+const booksSortedByPagesAsc = books
+	.slice()
+	.sort((a, b) => a.pages - b.pages)
+	.map((book) => ({ title: book.title, pages: book.pages }));
+booksSortedByPagesAsc;
+
+const booksSortedByPagesDesc = books
+	.slice()
+	.sort((a, b) => b.pages - a.pages)
+	.map((book) => ({ title: book.title, pages: book.pages }));
+booksSortedByPagesDesc;
